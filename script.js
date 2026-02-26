@@ -2,7 +2,7 @@
 // КОНФИГУРАЦИЯ БЭКЕНДА
 // ==============================================
 const CONFIG = {
-    APPS_SCRIPT_URL: 'https://script.google.com/macBn7TdYOwM2EfBMY5IBI2rvJtZhqDyuNlpQ/exec',
+    APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbw4KV7xQ9UvmLD-RpFIdhDtrnUj58CtL5_9aRCrK-mxmIs2WzuhwPVio4Q_AsANtSwc/exec',
     DEBUG: true
 };
 
@@ -274,4 +274,3 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('- Поле name:', document.getElementById('name'));
     }, 1000);
 });
-
