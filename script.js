@@ -2,7 +2,7 @@
 // КОНФИГУРАЦИЯ БЭКЕНДА
 // ==============================================
 const CONFIG = {
-    APPS_SCRIPT_URL: 'https://script.google.com/macBn7TdYOw1eJW9fycR4XqzJUjwopEmiwM2EfBMY5IBI2rvJtZhqDyuNlpQ/exec',
+    APPS_SCRIPT_URL: 'https://script.google.com/macBn7TdYOwM2EfBMY5IBI2rvJtZhqDyuNlpQ/exec',
     DEBUG: true
 };
 
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             day.className = 'day';
             day.textContent = i;
             
-            if (i === 16) {
+            if (i === 19) {
                 day.className = 'day wedding-day';
                 day.title = 'День нашей свадьбы!';
             }
@@ -274,3 +274,4 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('- Поле name:', document.getElementById('name'));
     }, 1000);
 });
+
