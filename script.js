@@ -2,7 +2,7 @@
 // КОНФИГУРАЦИЯ БЭКЕНДА
 // ==============================================
 const CONFIG = {
-    APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbw4KV7xQ9UvmLD-RpFIdhDtrnUj58CtL5_9aRCrK-mxmIs2WzuhwPVio4Q_AsANtSwc/exec',
+    APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbyCUXOyBN9ICL8cKPn8IiMBe6RXctlX8G5IejnQjsZyngFMdlzeXRjctboR7k-IqiiQ/exec',
     DEBUG: true
 };
 
@@ -183,6 +183,38 @@ document.addEventListener('DOMContentLoaded', function() {
         
         guestButtons[0].classList.add('active');
     }
+
+
+
+    // ===== ПОЛЕ ДЛЯ ДОПОЛНИТЕЛЬНОГО ГОСТЯ =====
+    const additionalGuestField = document.getElementById('additional-guest-field');
+    const additionalGuestInput = document.getElementById('additional-guest');
+
+    if (guestButtons.length > 0 && additionalGuestField) {
+        // Функция для проверки и показа/скрытия поля
+        function toggleAdditionalGuestField() {
+            const selectedValue = parseInt(guestsInput.value);
+            
+            if (selectedValue > 1) {
+                additionalGuestField.style.display = 'flex';
+                additionalGuestInput.required = (selectedValue > 1); // Делаем поле обязательным, если гостей > 1
+            } else {
+                additionalGuestField.style.display = 'none';
+                additionalGuestInput.required = false;
+                additionalGuestInput.value = ''; // Очищаем поле при скрытии
+            }
+        }
+        
+        // Добавляем обработчики на кнопки выбора количества гостей
+        guestButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                setTimeout(toggleAdditionalGuestField, 10); // Небольшая задержка для обновления значения
+            });
+        });
+        
+        // Проверяем начальное значение
+        toggleAdditionalGuestField();
+    }
     
     // ===== ФОРМА =====
     const rsvpForm = document.getElementById('rsvp-form');
@@ -209,6 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 formData.append('guests', document.getElementById('guests')?.value || '1');
                 formData.append('message', document.getElementById('message')?.value || '');
+                formData.append('additional_guest', document.getElementById('additional-guest')?.value || '');
                 
                 const result = await submitToGoogleSheets(formData);
                 
