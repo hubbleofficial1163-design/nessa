@@ -209,7 +209,7 @@
             <form class="rsvp-form" id="rsvp-form">
                 <!-- Имя -->
                 <div class="form-group">
-                    <label for="name">Ваше имя</label>
+                    <label for="name">Ваше имя и фамилия</label>
                     <input type="text" id="name" placeholder="Введите ваше имя" required>
                 </div>
                 
@@ -238,6 +238,12 @@
                 <div class="form-group">
                     <label for="guests">Количество гостей (включая вас)</label>
                     <div class="guests-selector">
+                                        <!-- Поле для имени дополнительного гостя (по умолчанию скрыто) -->
+                        <div class="form-group" id="additional-guest-field" style="display: none;">
+                            <label for="additional-guest">Имя и фамилия гостя, который придет с вами</label>
+                            <input type="text" id="additional-guest" placeholder="Введите имя и фамилию второго гостя">
+                            <small class="field-note">Укажите, если идете не один</small>
+                        </div>
                         <button type="button" class="guest-btn" data-value="1">1</button>
                         <button type="button" class="guest-btn" data-value="2">2</button>
                         <button type="button" class="guest-btn" data-value="3">3</button>
